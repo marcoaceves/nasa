@@ -1,4 +1,4 @@
-from flask_app.controllers import nasa
+from flask_app.controllers import creds, nasa
 from flask_app import app
 
 
