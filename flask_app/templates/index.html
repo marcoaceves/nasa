@@ -5,13 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="static/css/nasa.css">
 </head>
 <body>
     <wrapper>
+    <nav>
         <h1>Weekly Nasa Photos</h1>
-        <img src="{{picture}}">
-        <img src="{{picture2}}">
-        <img src="{{picture3}}">
+        <a href="random_nasa">Random Nasa Photos</a>
+    </nav>
+    <div class="seven">
+        {% for i in range(nasa_data |length) %}
+        {% if 'youtube' in nasa_data[i]["url"] %}
+            <div class="nasa_container">
+                <iframe src='{{nasa_data[i]["url"]}}' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>{{nasa_data[i]["title"]}}</p>
+            </div>
+        {% endif %}
+        {% if 'image' in nasa_data[i]["url"] %}
+        <div class="nasa_container">
+            <img class="nasa_img" src='{{nasa_data[i]["url"]}}'>
+            <p>{{nasa_data[i]["title"]}}</p>
+        </div>
+        
+        {% endif %}
+        {% endfor%}
+    </div>
     </wrapper>
 
 </body>
