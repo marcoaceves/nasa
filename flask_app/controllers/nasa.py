@@ -38,9 +38,10 @@ def hello_nasa():
     picture2 = nasa_data[2]["url"]
     picture3 = nasa_data[3]["url"]
     for i in range(len(nasa_data)):
-        print(nasa_data[i]["url"])
+        
+        print(nasa_data[i]["date"])
 
-    return render_template('index.html', picture=picture, picture2=picture2, picture3 =picture3, nasa_data=nasa_data)
+    return render_template('nasa.html', picture=picture, picture2=picture2, picture3 =picture3, nasa_data=nasa_data)
 
 @app.route('/random_nasa')
 def random_nasa():
